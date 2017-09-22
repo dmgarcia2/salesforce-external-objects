@@ -1,17 +1,32 @@
 {
   "name": "salesforce-external-objects",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
   },
+  "engines": {
+    "node": "6.11.1"
+  },
   "dependencies": {
-    "body-parser": "~1.15.2",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.2.0",
-    "express": "~4.14.0",
-    "jade": "~1.11.0",
-    "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.0"
+    "async": "^2.5.0",
+    "base-64": "^0.1.0",
+    "body-parser": "^1.18.1",
+    "collections": "^5.0.7",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.4",
+    "hbs": "^4.0.1",
+    "localStorage": "^1.0.3",
+    "moment": "^2.18.1",
+    "morgan": "^1.8.2",
+    "pg": "^6.4.2",
+    "serve-favicon": "^2.4.4",
+    "store": "^1.3.20",
+    "uniqid": "^4.1.1",
+    "utf8": "^2.1.2",
+    "util": "^0.10.3",
+    "uuid": "^3.1.0",
+    "winston": "^2.3.1"
   }
 }
