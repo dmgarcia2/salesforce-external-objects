@@ -1,5 +1,3 @@
-
-
 # salesforce-external-objects
 
 
