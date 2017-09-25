@@ -20,6 +20,7 @@ var main = require('./modules/main');
 var logger = main.getLogger();
 
 var indexRouter = require('./routes/index');
+var objectRouter = require('./routes/object');
 
 if (process.env.POSTGRES_SSL === 'true') {
 	pg.defaults.ssl = true;
@@ -42,6 +43,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/object', objectRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

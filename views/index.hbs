@@ -1,5 +1,106 @@
 <div id="home" class="container-fluid">
 	<h1>Salesforce External Objects PoC</h1>
 	<hr />
+	<div class="btn-toolbar" role="toolbar" aria-label="button toolbar">
+		<div class="btn-group" role="group" aria-label="global buttons">
+			<button type="button" class="btn btn-default" aria-label="Truncate table" id="truncateObjects">Clear All</button>
+			<button type="button" class="btn btn-default" aria-label="Bulk insert" id="bulkInsertObjects">Insert 1000</button>
+		</div>
+		<div class="btn-group" role="group" aria-label="table buttons">
+			<button type="button" class="btn btn-default" aria-label="Add new element" data-toggle="modal" data-target="#newObject" id="createObject">New object</button>
+		</div>
+	</div>
+	<br/><br/>
+	<div class="row">
+		<div class="col-md-12">
+			<table id="objects" class="table table-hover table-striped table-bordered display responsive nowrap" cellspacing="0"
+				width="100%">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Name</th>
+						<th>Body</th>
+						<th>External Id</th>
+						<th>Created Date</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</div>
+	<br />
+	
+	<!-- Modal new Stream object -->
+	<div class="modal fade" id="newObject" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">New Object</h4>
+				</div>
+				<div class="modal-body">
+					<form data-toggle="validator" id="newObjectForm">
+						<div class="form-group required">
+							<label class="control-label">Name</label> <input type="text" class="form-control" id="addNameObject" name="addNameObject" required>
+							<div class="help-block with-errors"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Body</label> <input type="text" class="form-control" id="addBodyObject" name="addBodyObject">
+						</div>
+						<button type="button" class="btn btn-primary" id="addButton">Add</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Modal edit App -->
+	<div class="modal fade" id="editObject" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Edit object</h4>
+				</div>
+				<div class="modal-body">
+					<form data-toggle="validator" id="updateObjectForm">
+						<div class="form-group">
+							<input type="hidden" class="form-control" id="editIdObject" value="" name="editIdObject">
+							<input type="hidden" class="form-control" id="editExternalGuidObject" value="" name="editExternalGuidObject">
+							<input type="hidden" class="form-control" id="editCreatedDateObject" value="" name="editCreatedDateObject">
+						</div>
+						<div class="form-group">
+							<label class="control-label">Name</label> <input type="text" class="form-control" id="editNameObject" value="" name="editNameObject" required>
+							<div class="help-block with-errors"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Body</label> <input type="tel" class="form-control" id="editBodyObject" value="" name="editBodyObject">
+							<div class="help-block with-errors"></div>
+						</div>
+						<button type="button" class="btn btn-primary" id="editButton">Edit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Modal delete App -->
+	<div class="modal fade" id="deleteObject" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Delete Object</h4>
+				</div>
+				<div class="modal-body">
+					<p>Are you sure you want to delete this row?</p>
+					<output type="text" name="rowIndex" id="rowIndex" value="" hidden />
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal" id="deleteButton">Delete</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <script type="text/javascript" src="/js/index.js"></script>
